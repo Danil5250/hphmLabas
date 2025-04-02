@@ -1,0 +1,498 @@
+/* Global Styles */
+/* root - pseudoclass = <html> */
+:root {
+    --primary-color: #4a6bff;
+    --secondary-color: #6c757d;
+    --accent-color: #ff6b6b;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --border-radius: 8px;
+    /*  0 - horizontal shifting
+        4px - vertical shifting of the shadow
+        12px - radius of blur (розмиття) */
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* slow transition before the animation
+    make animation slowlier, manage how effects and how long animation continues */
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /*set how the total width and height of 
+    element is calculated. (especailly with border, padding) 
+    width consist of width and height we are don't need to calculate width and height
+    manually*/
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /*line spacing (міжстрочний інтервал)*/
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    /*vh = view port height (procent of height of the window of te browser)*/
+    /*elements will take at least 100% of the height of the window*/
+    min-height: 100vh;
+    /* to align elements */
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: #3a56d4;
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+header {
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    /*веде себе як relative, але при прокрутці елемент залишається на місці*/
+    /*поки сторінка прокручується елемент зверху і коли сторінка буде прокручено 
+    максимально вгору то все одно елемент залишиться зверху (прилипне)*/
+    position: sticky;
+    /* position of the element */
+    top: 0;
+    /* how deeper element will be displayed
+    more z-index - more upper element will be displayed*/
+    z-index: 100;
+    padding: 1rem 2rem;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: var(--primary-color);
+    /* radius of the border nav */
+    border-radius: var(--border-radius);
+    /* 0.5rem - vertical padding, 1rem - horizontal padding */
+    padding: 0.5rem 1rem;
+}
+
+nav ul {
+    /* turn off markers */
+    list-style-type: none;
+    /* to make elements in one line */
+    display: flex;
+    /* align child elements of ul in the center of it */
+    justify-content: center;
+    /* if elements can not be displayed in one line (small screen),
+    last elements will be displayed in the next line */
+    flex-wrap: wrap;
+    /* gap between elements in ul */
+    /* similar to margin but better because work only between elements but not in edges */
+    gap: 1rem;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    /*element is displayed as block element 
+    (it takes it width and height, wrapped to the next line)*/
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+main {
+    /* this property take children of flex element and equal 
+    flex-grow: 1; flex-shrink: 1; flex-basis: 0%;
+    flex-grow: 1; -> element can grow and take all free space
+    flex-shrink: 1; -> element can shrink(зменшуватись) and take less space
+    flex-basis: 0%; -> element will take 0 space (start width and height)
+    Розтягує елемент, щоб заповнити доступний простір
+    Рівномірно ділить місце між усіма елементами з flex: 1*/
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+section {
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f2f5;
+    position: relative;
+    border-bottom: 2px solid var(--light-color);
+}
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+
+h3 {
+    color: var(--dark-color);
+    margin: 1rem 0;
+}
+
+/* Article/Product Styles */
+article {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+article:hover {
+    /* move element up at 5 pixels, quicklier than margin-top and top*/
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+article h3 {
+    color: var(--primary-color);
+}
+
+strong, b {
+    /* make text bolder */
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+mark {
+    background-color: #fff3cd;
+    padding: 0.2rem;
+    border-radius: 3px;
+}
+
+del {
+    color: var(--secondary-color);
+    text-decoration: line-through;
+}
+
+ins {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--success-color);
+}
+
+code {
+    background-color: #f1f1f1;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+    color: var(--dark-color);
+}
+
+/* Aside/Menu Styles */
+aside {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+menu {
+    list-style-type: none;
+}
+
+details {
+    margin-bottom: 1rem;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+summary:hover {
+    background-color: var(--light-color);
+}
+
+details ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+details li {
+    margin-bottom: 0.5rem;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    /* unite border of bordering cells deleting space between them
+    Instead of double borders (from each cell) there remains one common border. */
+    border-collapse: collapse;
+    margin: 1rem 0;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    /* delete content which is outside the border of the table, 
+    doesn't provide ability to scroll content */
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* nth-child (n) - select every n-th element (n) among the childs
+nth-child (3) - select third child
+nth-child(even) - select every even element (even) among the childs */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e9f0ff;
+}
+
+/* Form Styles */
+select, input, textarea, button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+select {
+    background-color: white;
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+}
+
+button:hover {
+    background-color: #3a56d4;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/*For adaptation of the site to screen which width 768px and smaller (tablets and mobiles) */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    article, section, aside {
+        padding: 1rem;
+    }
+    
+    table {
+        display: block;
+        /* allow scrole when elements are too big for the screen */
+        overflow-x: auto;
+    }
+}
+
+/* Additional Styles for Specific Elements */
+.profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
+    /* inherited from the parent */
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.5rem 1rem;
+}
+
+.register-popup {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.register-frame {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.login-btn {
+    background: linear-gradient(to right, #4a6bff, #6a11cb);
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Price Tag Styles */
+.price-tag {
+    display: inline-block;
+    background-color: var(--success-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Discount Badge */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Team Member Cards */
+.team-member {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Category Tags */
+.category-tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    color: var(--dark-color);
+}
+
+/* Product Grid Layout */
+.product-grid {
+    display: grid;
+    /* make a frid, manage count of cells inside the container
+    repeat - repeat template
+    auto-fill - browser add such count of cells, that the container can has if 
+    the cell is too small it will be empty
+    minmax - minimum and maximum size of the cell (300px - min width, 1fr - max width)
+    */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }

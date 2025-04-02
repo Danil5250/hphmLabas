@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the best products at our online store with a wide range of electronics, clothing, and food items at competitive prices.">
+    <meta name="keywords" content="online store, electronics, clothing, accessories, food, shopping, best store, women, men, kids, qucik delivery, smartphone, laptop, tablet, coat, fruits, vegetables, meat">
+    <meta name="author" content="BestStore">
+    <meta name="copyright" content="@2025 BestStore">
+    <meta name="language" content="English">
+    <meta name='pagename' content='Wishlist'>
+    <meta name='subtitle' content='Provide user the best products'>
+    <!-- allow indexation(finding and classification of site) and going by links-->
+    <meta name="robots" content="index, follow">
+    <!-- Social media sharing (Open Graph) meta tags
+    The Open Graph protocol controls what content displays when sharing links on social media -->
+    <meta property="og:title" content="The best shop - Quality Products Online">
+    <meta property="og:description" content="Shop our collection of electronics, clothing, accessories, food and more.">
+    <meta property="og:image" content="https://bestshop.com/images/icon.svg">
+    <meta property="og:url" content="https://bestshop.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BestShop">
+    <meta name='og:latitude' content='49.9935'>
+    <meta name='og:longitude' content='36.2304'>
+    <meta name='og:street-address' content='Rizdviana Street, 7'>
+    <meta name='og:locality' content='Kharkiv'>
+    <meta name='og:region' content='Kharkiv region'>
+    <meta name='og:postal-code' content='61000'>
+    <meta name='og:country-name' content='Ukraine'>
+
+
+    <!-- Not all number are links as usual (for product codes and so on), to make them links <a href="tel:number">-->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" sizes="16x16" href="./../images/icon.svg">
+    <link rel="stylesheet" href="../styles/generalStyle.css">
+    <title>Store</title>
+    <style>
+        /* Releated style */
+        /* Login Popup Styles */
+        .register-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            /* horizontal alignment inside flex-container */
+            justify-content: center;
+            align-items: center;
+            /* top and bottom padding */
+            padding: 40px 0;
+            /* padding is included in height */
+            box-sizing: border-box; 
+        }
+        
+        .register-frame {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            /* it doesn't touch screen edges on mobile */
+            max-width: 90%; 
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            /* Centers vertically with the padding */
+            margin: auto;
+            /* Limits height to viewport */
+            max-height: 90vh;
+            /* Adds scroll if content is too big in y axe */
+            overflow-y: auto;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #555;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+        
+        .login-logo {
+            margin-bottom: 30px;
+            /*space at top*/
+            padding-top: 20px;
+        }
+        
+        .login-logo img {
+            height: 50px;
+            max-width: 100%;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            /*space above button*/
+            margin-top: 10px;
+        }
+        
+        .login-btn:hover {
+            background-color: #3367d6;
+        }
+        
+        .login-links {
+            margin-top: 20px 0;
+            font-size: 14px;
+        }
+        
+        .login-links a {
+            color: #4285f4;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .login-links a:hover {
+            text-decoration: underline;
+            color: #3367d6;
+        }
+        
+        .register-divider {
+            margin: 25px 0;
+            border-top: 1px solid #eee;
+            position: relative;
+        }
+        
+        .register-divider-text {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 0 10px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* selectors :not = no
+        selector :placeholder-shown = when input is empty
+        :not(:placeholder-shown) = when input is not empty (:invalid and invalid input) */
+        input:not(:placeholder-shown):invalid {
+            border: 2px dashed red;
+        }
+          
+        input {
+          border: 2px solid #ddd;
+        }
+        /*When user entered correct data and cancel window after opening it is correct
+        but it is empty too */
+        /* input:user-valid {
+          border: 2px solid green;
+        } */
+        input:not(:placeholder-shown):valid {
+          border: 2px solid green;
+        }
+
+
+        #profileBtn{
+            /* make a cursor pointer when it points to clikable element */
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            padding: 0;
+        }
+
+        aside {
+            position: fixed;
+            right: -250px;
+            top: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+          }
+          
+          .hover-trigger {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 20px;
+            z-index: 999;
+            background-color: transparent;
+            transition: all 0.3s ease;
+          }
+          /*this style is applied when element with 
+          class is hovered and aside goes directly after element with this class
+          or when aside is hovered*/
+
+          .hover-trigger:hover + aside,
+          aside:hover {
+            right: 0;
+          }
+          
+          menu {
+            list-style-type: none;
+            padding: 0;
+          }
+          
+          details {
+            margin-bottom: 15px;
+          }
+          
+          summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #4a6bff;
+            padding: 8px;
+            border-radius: 4px;
+          }
+          
+          summary:hover {
+            background-color: #f5f7fa;
+          }
+          
+          details ul {
+            padding-left: 20px;
+            margin-top: 5px;
+          }
+          
+          details li {
+            margin-bottom: 5px;
+          }
+          
+          a {
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+          }
+          
+          a:hover {
+            color: #4a6bff;
+          }
+
+          .video-container {
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            /* cut overflowed edges */
+            overflow: hidden;
+        }
+        
+        .video-container video {
+            /* get all width of the container */
+            width: 100%;
+            /* save proportions */
+            height: auto;
+            /*
+            contain all width of the parent element (if width doesn't indicated)
+            always starts from the new line
+            ingores neighbour elements if the are noy block
+            can be managed by properstues (width, height, margin, padding and so on)
+            */
+            display: block;
+            border-radius: calc(var(--border-radius) - 0.5rem);
+        }
+
+        @media (max-width: 480px) {
+
+            .video-container {
+                padding: 0.5rem;
+            }
+            .video-container video {
+                border-radius: calc(var(--border-radius) - 0.25rem);
+            }
+
+            .register-frame {
+                padding: 30px 20px;
+                width: 95%;
+            }
+            
+            .login-logo img {
+                height: 40px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .input-group input {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .login-btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The best shop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+                <li><a id="profileBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="black" stroke-width="2"/>
+                        <circle cx="12" cy="10" r="4" fill="black"/>
+                        <path d="M6 20c2-3 10-3 12 0" stroke="black" stroke-width="2"/>
+                      </svg>
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Register Popup -->
+    <div id="registerPopup" class="register-popup">
+        <div class="register-frame">
+            <button class="close-btn" id="closeRegisterBtn">&times;</button>
+            <div class="login-logo">
+                <img src="./../images/icon.svg" alt="BestShop Logo">
+            </div>
+            
+            <h1>Register Your Account</h1>
+
+            <form id="registerForm">
+                <div class="input-group">
+                    <label for="login">Login</label>
+                    <input type="login" id="login"
+                    title="Please enter your login (e.g. Ivan)"
+                    placeholder="Ivan"
+                    minlength="3" maxlength="100" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="ivan@gmail.com"
+                    title="Please enter your email (e.g. ivan@gmail.com)"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                </div>
+                <!-- to congratulate user -->
+                <div class="input-group">
+                    <label for="birthday">Birthday</label>
+                    <input type="date" id="birthday"
+                    title="Please enter your birthday"
+                    value="2000-01-01"
+                    title=""
+                    max="2020-12-31"
+                    min="1900-01-01" required>
+                    
+                    
+                </div>
+                <div class="input-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone"
+                    title="Please enter your phone (e.g. +380123456789)"
+                    placeholder="+380123456789"
+                    pattern="^\+[0-9]{1,3}[0-9]{4,14}$">
+                </div>
+
+                <!-- for contacting with seller or customer -->
+                <div class="input-group">
+                <label for="telegramLink">Enter your link to telegram:</label>
+                <input
+                    type="url"
+                    id="telegramLink"
+                    title="Please enter your telegramLink (e.g. https://t.me/your_username)"
+                    placeholder="https://t.me/your_username"
+                    pattern="https:\/\/t\.me\/[a-zA-Z0-9_]+"
+                    title="Please enter a valid Telegram link (e.g. https://t.me/username)"
+                    />
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" 
+                    placeholder="Enter your password" 
+                    minlength="8" maxlength="50" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Register</button>
+            </form>
+            
+            <div class="login-links">
+                <a href="#">Forgot password?</a>
+            </div>
+            
+            <div class="register-divider">
+                <span class="register-divider-text">or</span>
+            </div>
+
+            <div class="login-links">
+                Don't have an account? <a href="#">Log in</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="video-container">
+        <video
+            controls
+            autoplay
+            loop
+            muted
+            preload="auto">
+            <source src="../video/shop_video.mp4" type="video/mp4" />
+            <p>
+              Your browser doesn't support this video. Here is a
+              <a href="../video/shop_video.mp4">link to the video</a> instead.
+            </p>
+        </video>
+        </section>
+
+        <section>
+            <h2>Top Products</h2>
+            <!--
+                Add audio video
+                Correct the form (убрать то что сначала уже неправильнo, form validation attrbutes, clear fields вывод ошибки)
+                custom error show
+            -->
+           
+            <article>
+                <h3><ins>Apple</ins></h3>
+                <div>
+                    <strong>Description:</strong>
+                    <p><b>Apple: Nature’s Perfect Snack!</b>
+                        Crisp, juicy, and packed with vitamins—apples are the ultimate 
+                        healthy treat! Whether you crave a sweet bite or a tangy crunch, 
+                        this nature-made superfruit fuels your body and delights your taste 
+                        buds.</p>
+                        <p><code>Product Code: P004</code></p>
+                </div>
+            </article>
+            <article>
+                <h3><ins>Coat</ins></h3>
+                <div>
+                    <strong>Description:</strong>
+                    <p>
+                        <b>Stay Warm, Stay Stylish – The Perfect Coat for 
+                            Every Occasion!</b>
+                        Crisp, juicy, and packed with vitamins—apples are the
+                        ultimate healthy treat! Whether you crave a sweet bite or 
+                        a tangy crunch, this nature-made superfruit fuels your body
+                        and delights your taste buds.</p>
+                    <p><del>Old price: $500</del> <ins>New price: 
+                        <mark>$400</mark></ins></p>
+                    <em>Hurry up discount ends soon!!!</em>
+                    <p><code>Product Code: P003</code></p>
+                </div>
+                
+            </article>
+            <article>
+                <h3><ins>iPhone 15 Pro – Redefining Innovation!</ins></h3>
+                <div>
+                    <strong>Description:</strong>
+                    <p><b>Apple: Nature’s Perfect Snack!</b>
+                        Experience the <i>power of titanium</i>, <i>the speed of the A17 Pro chip</i>, and the <i>magic
+                        of a 48MP camera</i>—all in the palm of your hand. With <i>Dynamic Island</i>, 
+                        an all-day battery, and <i>unmatched performance</i>, the iPhone 15 Pro is more than
+                        a phone—it’s your ultimate tool for creativity and connection.</p>
+                        <u>Price: $4000</u>
+                        <p><small>Offer valid till stocks last.</small></p>
+                        <p><code>Product Code: P002</code></p>
+                </div>
+                
+            </article>
+        </section>
+                
+    </main>
+
+    <div class="hover-trigger"></div>
+    <aside>
+        <menu>
+            <ol>
+                <li>
+                    <details>
+                        <summary>Food</summary>
+                        <ul>
+                            <li><a href="#">Fruits</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Meat</a></li>
+                        </ul>
+                    </details>
+                    
+                </li>
+                <li>
+                    <details>
+                        <summary>Electronics</summary>
+                        <ul>
+                            <li><a href="#">Smartphones</a></li>
+                            <li><a href="#">Laptops</a></li>
+                            <li><a href="#">Tablets</a></li>
+                        </ul>
+                    </details> 
+                </li>
+                <li>
+                    <details>
+                        <summary>Clothing</summary>
+                        <ul>
+                            <li><a href="#">Sport</a></li>
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Kids</a></li>
+                            <li><a href="#">Accessories</a></li>
+                        </ul>
+                    </details>
+                    
+                </li>
+                <ul type="disc">
+                    <li><a href="#">Merch</a></li>
+                    <li><a href="#">Quick delivery</a></li>
+                    <li><a href="#">Premium</a></li>
+                </ul>
+            </ol>
+        </menu>
+    </aside>
+    <footer>
+        <div>We in social media <a href="https://t.me/danil_bukhantsov"><img width="25px" height="25px"
+                    src="./../images/TGIcon.jpg" alt="Telegram icon to profile"></a></div>
+                    <p>&copy; 2025 Shop. All rights reserved.<a href="https://www.iso.org/standard/72402.html">ISO Certification</a></p>
+    </footer>
+
+    <script>
+        const profileBtn = document.getElementById('profileBtn');
+        const registerPopup = document.getElementById('registerPopup');
+        const closeRegisterBtn = document.getElementById('closeRegisterBtn');
+
+        const login = document.getElementById('login');
+        const email = document.getElementById('email');
+        const birthday = document.getElementById('birthday');
+        const phone = document.getElementById('phone');
+        const telegramLink = document.getElementById('telegramLink');
+        const password = document.getElementById('password');
+        
+        // Show popup
+        profileBtn.addEventListener('click', function() {
+            registerPopup.style.display = 'flex';
+        });
+        
+        // Hide popup when close button is clicked
+        closeRegisterBtn.addEventListener('click', function() {
+            clearInputs();
+            registerPopup.style.display = 'none';
+        });
+        
+        // Hide popup when clicking outside the frame
+        registerPopup.addEventListener('click', function(e) {
+            if (e.target === registerPopup) {
+                clearInputs();
+                registerPopup.style.display = 'none';
+            }
+        });
+        
+        // Prevent form submission
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('You are registered!');
+
+            clearInputs()
+
+            registerPopup.style.display = 'none';
+        });
+        function clearInputs(){
+            login.value = "";
+            email.value = "";
+            birthday.value = "2000-01-01";
+            phone.value = "";
+            telegramLink.value = "";
+            password.value = "";
+        }
+    </script>
+</body>
+</html>

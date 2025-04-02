@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover the best products at our online store with a wide range of electronics, clothing, and food items at competitive prices.">
+    <meta name="keywords" content="online store, electronics, clothing, accessories, food, shopping, best store">
+    <meta name="author" content="BestStore">
+    <meta name="copyright" content="@2025 BestStore">
+    <meta name="language" content="English">
+    <meta name='pagename' content='Wishlist'>
+    <meta name='subtitle' content='Provide user the best products'>
+    <!-- allow indexation(finding and classification of site) and going by links-->
+    <meta name="robots" content="index, follow">
+    <!-- Social media sharing (Open Graph) meta tags
+    The Open Graph protocol controls what content displays when sharing links on social media -->
+    <meta property="og:title" content="The best shop - Quality Products Online">
+    <meta property="og:description" content="Shop our collection of electronics, clothing, accessories, food and more.">
+    <meta property="og:image" content="https://bestshop.com/images/icon.svg">
+    <meta property="og:url" content="https://bestshop.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BestShop">
+    <meta name='og:latitude' content='49.9935'>
+    <meta name='og:longitude' content='36.2304'>
+    <meta name='og:street-address' content='Rizdviana Street, 7'>
+    <meta name='og:locality' content='Kharkiv'>
+    <meta name='og:region' content='Kharkiv region'>
+    <meta name='og:postal-code' content='61000'>
+    <meta name='og:country-name' content='Ukraine'>
+
+
+    <!-- Not all number are links as usual (for product codes and so on), to make them links <a href="tel:number">-->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" sizes="16x16" href="./../images/icon.svg">
+    <link rel="stylesheet" href="../styles/generalStyle.css">
+    <title>Store</title>
+    <style>
+        /* Releated styles */
+        /* Dropdown Menu */
+        nav ul li {
+            position: relative;
+        }
+
+        .nestedMeny {
+            /*hide element without saving it */
+            display: none;
+            /* other element live like this element is not exist
+            it is situated bu coordinate top right left bottom, 
+            without them it is situated by default
+            it clothest parent doesn't have position: relative, because element positioned relatively body */
+            position: absolute;
+            background-color: var(--primary-color);
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            z-index: 100;
+            top: 100%;
+            left: 0;
+            /* transparency of the object 0 - fully unvisible */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li:hover .nestedMeny {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nestedMeny li {
+            width: 100%;
+        }
+
+        .nestedMeny li a {
+            padding: 12px 20px;
+            color: white;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .nestedMeny li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+        }
+
+        /* Dropdown arrow */
+        .dropdown:after {
+            content: " ▼";
+            font-size: 10px;
+            margin-left: 5px;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        nav ul li:hover .dropdown:after {
+            transform: rotate(180deg);
+        }
+
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nestedMeny {
+                /* element situated as well
+                element doesn't react at properties top, right, left, bottom, z-index */
+                position: static;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                transform: none;
+                background-color: rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+            }
+
+            nav ul li:hover .nestedMeny {
+                transform: none;
+            }
+
+            .nestedMeny li a {
+                padding-left: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>The best shop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+                <li>
+                    <a href="#" class="dropdown">Categories</a>
+                    <ul class="nestedMeny">
+                        <li><a href="#Electronisc">Electronisc</a></li>
+                        <li><a href="#Clothing">Clothing</a></li>
+                        <li><a href="#Food">Food</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+            
+    </header>
+    <main>
+        <section>
+            <h2>Potential products</h2>
+            <section>
+                <p>A comprehensive collection of our most desired products, carefully gathered to help you keep track of
+                    what you love.</p>
+                <div>
+                    <label>Filter by Category:</label>
+                    <select>
+                        <option>All</option>
+                        <option>Electronics</option>
+                        <option>Clothing</option>
+                        <option>Accessories</option>
+                        <option>Footwear</option>
+                    </select>
+                </div>
+            </section>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+                <tbody id="Electronisc">
+                    <tr>  
+                        <td>Tablet</td>  
+                        <td>Electronics</td>  
+                        <td>$499</td>  
+                    </tr>  
+                    <tr>  
+                        <td>Bluetooth Speaker</td>  
+                        <td>Electronics</td>  
+                        <td>$89</td>  
+                    </tr>  
+                    <tr>  
+                        <td>VR Headset</td>  
+                        <td>Electronics</td>  
+                        <td>$399</td>  
+                    </tr>  
+                    <tr>  
+                        <td>External SSD</td>  
+                        <td>Accessories</td>  
+                        <td>$129</td>  
+                    </tr>  
+                    <tr>  
+                        <td>Drone</td>  
+                        <td>Electronics</td>  
+                        <td>$799</td>  
+                    </tr>  
+                    <tr>  
+                        <td>Wireless Mouse</td>  
+                        <td>Accessories</td>  
+                        <td>$49</td>  
+                    </tr>  
+                    <tr>  
+                        <td>Home Security Camera</td>  
+                        <td>Electronics</td>  
+                        <td>$199</td>  
+                    </tr>  
+                    <tr>  
+                        <td>Portable Power Bank</td>  
+                        <td>Accessories</td>  
+                        <td>$39</td>  
+                    </tr>  
+                    <tr>  
+                        <td>Smart Light Bulb</td>  
+                        <td>Electronics</td>  
+                        <td>$25</td>  
+                    </tr>  
+                    <tr>  
+                        <td>Gaming Console</td>  
+                        <td>Electronics</td>  
+                        <td>$499</td>  
+                    </tr>  
+                </tbody>
+                <tbody id="Clothing">
+                    <tr>
+                        <td>Jacket</td>
+                        <td>Clothing</td>
+                        <td>$300</td>
+                    </tr>
+                    <tr>
+                        <td>Leather Jacket</td>
+                        <td>Clothing</td>
+                        <td>$199</td>
+                    </tr>
+                    <tr>
+                        <td>T-Shirt</td>
+                        <td>Clothing</td>
+                        <td>$159</td>
+                    </tr>
+                    <tr>
+                        <td>Sneakers</td>
+                        <td>Footwear</td>
+                        <td>$99</td>
+                    </tr>
+                    <tr>
+                        <td>Backpack</td>
+                        <td>Accessories</td>
+                        <td>$89</td>
+                    </tr>
+                    <tr>
+                        <td>Jeans</td>
+                        <td>Clothing</td>
+                        <td>$120</td>
+                    </tr>
+                    <tr>
+                        <td>Hoodie</td>
+                        <td>Clothing</td>
+                        <td>$75</td>
+                    </tr>
+                    <tr>
+                        <td>Running Shoes</td>
+                        <td>Footwear</td>
+                        <td>$110</td>
+                    </tr>
+                    <tr>
+                        <td>Baseball Cap</td>
+                        <td>Accessories</td>
+                        <td>$40</td>
+                    </tr>
+                    <tr>
+                        <td>Wristwatch</td>
+                        <td>Accessories</td>
+                        <td>$250</td>
+                    </tr>
+                </tbody>
+                
+                <tbody id="Food">
+                    <tr>
+                        <td>Apple</td>
+                        <td>Food</td>
+                        <td>$5</td>
+                    </tr>
+                    <tr>
+                        <td>Pear</td>
+                        <td>Food</td>
+                        <td>$2</td>
+                    </tr>
+                    <tr>
+                        <td>Tomato</td>
+                        <td>Food</td>
+                        <td>$7</td>
+                    </tr>
+                    <tr>
+                        <td>Banana</td>
+                        <td>Food</td>
+                        <td>$3</td>
+                    </tr>
+                    <tr>
+                        <td>Orange</td>
+                        <td>Food</td>
+                        <td>$6</td>
+                    </tr>
+                    <tr>
+                        <td>Strawberry</td>
+                        <td>Food</td>
+                        <td>$8</td>
+                    </tr>
+                    <tr>
+                        <td>Blueberry</td>
+                        <td>Food</td>
+                        <td>$12</td>
+                    </tr>
+                    <tr>
+                        <td>Milk</td>
+                        <td>Food</td>
+                        <td>$4</td>
+                    </tr>
+                    <tr>
+                        <td>Bread</td>
+                        <td>Food</td>
+                        <td>$3</td>
+                    </tr>
+                    <tr>
+                        <td>Cheese</td>
+                        <td>Food</td>
+                        <td>$15</td>
+                    </tr>
+                </tbody>
+                
+                
+            </table>
+        </section>
+    </main>
+    <footer>
+        <div>We in social media <a href="https://t.me/danil_bukhantsov"><img width="25px" height="25px"
+                    src="./../images/TGIcon.jpg" alt="Telegram icon to profile"></a></div>
+                    <p>&copy; 2025 Shop. All rights reserved.<a href="https://www.iso.org/standard/72402.html">ISO Certification</a></p>
+    </footer>
+</body>
+
+</html>

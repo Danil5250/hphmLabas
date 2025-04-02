@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover the best products at our online store with a wide range of electronics, clothing, and food items at competitive prices.">
+    <meta name="keywords" content="online store, shopping, best store, collaboratores, dev ops, frontend, backend">
+    <meta name="author" content="BestStore">
+    <meta name="copyright" content="@2025 BestStore">
+    <meta name="language" content="English">
+    <meta name='pagename' content='Wishlist'>
+    <meta name='subtitle' content='Provide user the best products'>
+    <!-- allow indexation(finding and classification of site) and going by links-->
+    <meta name="robots" content="index, follow">
+    <!-- Social media sharing (Open Graph) meta tags
+    The Open Graph protocol controls what content displays when sharing links on social media -->
+    <meta property="og:title" content="The best shop - Quality Products Online">
+    <meta property="og:description" content="Shop our collection of electronics, clothing, accessories, food and more.">
+    <meta property="og:image" content="https://bestshop.com/images/icon.svg">
+    <meta property="og:url" content="https://bestshop.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BestShop">
+    <meta name='og:latitude' content='49.9935'>
+    <meta name='og:longitude' content='36.2304'>
+    <meta name='og:street-address' content='Rizdviana Street, 7'>
+    <meta name='og:locality' content='Kharkiv'>
+    <meta name='og:region' content='Kharkiv region'>
+    <meta name='og:postal-code' content='61000'>
+    <meta name='og:country-name' content='Ukraine'>
+
+
+    <!-- Not all number are links as usual (for product codes and so on), to make them links <a href="tel:number">-->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" sizes="16x16" href="./../images/icon.svg">
+    <link rel="stylesheet" href="../styles/generalStyle.css">
+    <title>Store</title>
+    <style>
+        main {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+            /* height of the line, like a line spacing */
+            line-height: 1.6;
+          }
+          
+          section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          
+          section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+          }
+          
+          
+          
+          ul {
+            padding-left: 1.5rem;
+          }
+          
+          li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+          }
+          
+          li::before {
+            content: '•';
+            color: #4a6bff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+          }
+          
+          li {
+            transition: transform 0.2s ease;
+          }
+          
+          li:hover {
+            transform: translateX(5px);
+          }
+
+          .hero-section {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 2rem 0;
+            opacity: 0.8;
+          }
+          
+          .hero-section::before {
+            content: '';
+            /* pull out from the flow and situate relative to the parent element (html) */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+          }
+          
+          .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+          }
+          
+          .hero-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+          }
+          
+          .hero-section p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: rgb(229, 228, 226);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+          }
+          .hero-content h2 {
+            border-bottom: 2px solid #f0f2f5;
+          }
+
+          .hero-section ul li {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: rgb(255, 255, 255);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+          }
+
+          h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: white;
+          }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>The best shop</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section" style="background-image: url('../images/bg_shop.jpg');">
+            <div class="hero-content">
+                <h2 >Our Story</h2>
+                <p style="font-size: 1.1rem;margin-bottom: 1.5rem; font-weight: 600;">Welcome to our shop! We started our journey in 2000 with the 
+                    goal of providing high-quality products to our customers.
+                    Our mission is to offer the best products at affordable prices.</p>
+            </div>
+        </section>
+        <section class="hero-section" style="background-image: url('../images//products_wall.jpg');">
+            <div class="hero-content">
+                <h2>Why Choose Us?</h2>
+                <ul>
+                    <li style="list-style: none;">High-quality products</li>
+                    <li style="list-style: none;">Fast and reliable shipping</li>
+                    <li style="list-style: none;">Excellent customer service</li>
+                    <li style="list-style: none;">Affordable prices</li>
+                </ul>
+            </div>
+        </section>
+        
+    </main>
+    <aside>
+        <section>
+            <h2>Meet Our Team</h2>
+            <p>Our dedicated team is passionate about delivering
+            the best shopping experience. We are constantly working to 
+            improve our service and bring you the latest products.</p>
+            <article>
+                <h3>Alice Doe</h3>
+                <div>
+                    <p>DevOps Engineer</p>
+                    <p>John is responsible for maintaining and optimizing the infrastructure of our online store. 
+                    He ensures smooth deployment processes, automates workflows, and enhances security and performance.
+                    His expertise in CI/CD pipelines, cloud computing, and server management keeps our platform reliable and scalable.</p>
+                    <a href="https://www.atlassian.com/devops#:~:text=DevOps%20is%20a%20set%20of,and%20collaboration%2C%20and%20technology%20automation.">Learn more about DevOps</a>
+                      <figure>
+                        <figcaption><p>Hear the speetch of the DevOps engineer about her work</p></figcaption>
+                        <audio controls src="../audio/DevOpsEngineerSpeech.mp3"></audio>
+                        <!-- <a href="../audio/DevOpsEngineerSpeech.mp3"> Download audio </a> -->
+                      </figure>
+                </div>
+            </article>
+            <article>
+                <h3>John Doe</h3>
+                <div>
+                    <p>Frontend Developer</p>
+                    <p>Ivan specializes in crafting intuitive and visually appealing user interfaces. 
+                    He ensures that our website is fast, responsive, and accessible on all devices. 
+                    Using modern frameworks like React and Vue.js, he enhances the customer experience 
+                    with seamless navigation and interactive features.</p>
+                    <a href="https://en.wikipedia.org/wiki/Frontend_and_backend">Learn more about frontend development</a>
+                    <figure>
+                      <figcaption><p>Hear the speetch of the Frontend Developer about his work</p></figcaption>
+                      <audio controls src="../audio/FrontendEngineerSpeech.mp3"></audio>
+                      <!-- <a href="../audio/FrontendEngineerSpeech.mp3"> Download audio </a> -->
+                    </figure>
+                  </div>
+            </article>
+            <article>
+                <h3>Maksim Doe</h3>
+                <div>
+                    <p>Backend Developer</p>
+                    <p>Maksim is in charge of developing and maintaining the server-side logic, databases, and APIs. 
+                    He ensures that all transactions, user accounts, and data storage are secure and efficient. 
+                    His expertise in Node.js, Python, and SQL helps keep our store running smoothly.</p>
+                    <a href="https://en.wikipedia.org/wiki/Frontend_and_backend">Learn more about backend development</a>
+                    <figure>
+                      <figcaption><p>Hear the speetch of the Frontend Developer about his work</p></figcaption>
+                      <audio controls src="../audio/BackendEngineerSpeech.mp3"></audio>
+                      <!-- <a href="../audio/BackendEngineerSpeech.mp3"> Download audio </a> -->
+                    </figure>
+                </div>
+            </article>
+        </section>
+    </aside>
+    <footer>
+        <div>We in social media <a href="https://t.me/danil_bukhantsov"><img width="25px" height="25px"
+                    src="./../images/TGIcon.jpg" alt="Telegram icon to profile"></a></div>
+                    <p>&copy; 2025 Shop. All rights reserved.<a href="https://www.iso.org/standard/72402.html">ISO Certification</a></p>
+    </footer>
+</body>
+</html>
